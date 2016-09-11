@@ -3,15 +3,34 @@ require('styles/App.css');
 
 import React from 'react';
 
-let yeomanImage = require('../images/yeoman.png');
+let bgImage = require('../images/6.jpg');
 
 class AppComponent extends React.Component {
+  constructor (props) {
+    super(props);
+    this.handleLoad = this.handleLoad.bind(this);
+  }
+
+  handleLoad () {
+
+  }
+
   render() {
     return (
-      <div className="index">
-        <img src={yeomanImage} alt="Yeoman Generator" />
-        <div className="notice">Please edit <code>src/components/Main.js</code> to get started!</div>
-      </div>
+      <section className="box" ref="box" onLoad={this.handleLoad}>
+        <img src={bgImage} id="img-back" />
+        <img src={bgImage} id="img-face" />
+        <div id="main">
+          <div className="minDiv left-up"></div>
+          <div className="minDiv up"></div>
+          <div className="minDiv right-up"></div>
+          <div className="minDiv right"></div>
+          <div className="minDiv right-down"></div>
+          <div className="minDiv down"></div>
+          <div className="minDiv left-down"></div>
+          <div className="minDiv left"></div>
+        </div>
+      </section>
     );
   }
 }

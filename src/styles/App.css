@@ -1,21 +1,85 @@
 /* Base Application Styles */
-body {
-  color: #fff;
-  background: #222;
+body, html {
+  background-color: #aaaaaa;
 }
-
-.index img {
-  margin: 40px auto;
-  border-radius: 4px;
-  background: #fff;
-  display: block;
+.box {
+  position: absolute;
+  top: 10px;
+  left: 50px;
 }
+#img-back {
+  width: 400px;
+  opacity: 0.7;
+  position: absolute;
+  top: 0;
+  left: 0;
 
-.index .notice {
-  margin: 20px auto;
-  padding: 15px 0;
-  text-align: center;
-  border: 1px solid #000;
-  border-width: 1px 0;
-  background: #666;
+}
+#img-face {
+  width: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip: rect(0,200px,200px,0);
+}
+#main {
+  border: 1px solid #ffffff;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+}
+.minDiv {
+  position: absolute;
+  width: 8px;
+  height: 8px;background-color: #ffffff;
+}
+.left-up {
+  left: -4px;
+  top: -4px;
+  cursor: nw-resize;
+}
+.up {
+  left: 50%;
+  top: -4px;
+  margin-left: -4px;
+  cursor: n-resize;
+ }
+.right-up {
+  left: 100%;
+  top: -4px;
+  margin-left: -4px;
+  cursor: ne-resize;
+}
+.right {
+  left: 100%;
+  top: 50%;
+  margin-left: -4px;
+  margin-top: -4px;
+  cursor: e-resize;
+}
+.right-down {
+  top: 100%;
+  left: 100%;
+  margin-left: -4px;
+  margin-top: -4px;
+  cursor: se-resize;
+}
+.down {
+  top: 100%;
+  left: 50%;
+  margin-left: -4px;
+  margin-top: -4px;
+  cursor: s-resize;
+}
+.left-down {
+  left: -4px;
+  top: 100%;
+  margin-top: -4px;
+  cursor: sw-resize;
+}
+.left {
+  left: -4px;
+  top: 50%;
+  margin-top: -4px;
+  cursor: w-resize;
 }
