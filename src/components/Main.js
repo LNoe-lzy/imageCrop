@@ -29,6 +29,9 @@ class AppComponent extends React.Component {
   }
 
   handleLoad () {
+
+    // 禁止图片被选中
+    document.onselectstart = new Function('event.returnValue=false;');
     let right = ReactDOM.findDOMNode(this.refs.right),
       up = ReactDOM.findDOMNode(this.refs.up),
       down = ReactDOM.findDOMNode(this.refs.down),
@@ -67,6 +70,16 @@ class AppComponent extends React.Component {
         addW = y - getPosition(main).top - beforeH;
       main.style.height = addW + beforeH + 'px';
     };
+
+    let setChoice = () => {
+      let top = main.offsetTop,
+        right = main.offsetWidth + main.offsetLeft,
+        bottom = main.offsetTop + main.offsetHeight,
+        left = main.offsetLeft,
+        imgFace = ReactDOM.findDOMNode(this.refs.imgFace);
+      imgFace.style.clip = 'rect(' + top + 'px,' + right + 'px,' + bottom  + 'px,'+ left + 'px)';
+    };
+
     right.onmousedown = () => {
       keyDown = true;
       contact = 'right';
@@ -115,6 +128,7 @@ class AppComponent extends React.Component {
           case 'rightdown' : rightMove(e); downMove(e); break;
         }
       }
+      setChoice();
     }
   }
 
@@ -122,7 +136,7 @@ class AppComponent extends React.Component {
     return (
       <section className="box" ref="box" onLoad={this.handleLoad}>
         <img src={bgImage} id="img-back" />
-        <img src={bgImage} id="img-face" />
+        <img src={bgImage} id="img-face" ref="imgFace" />
         <div id="main" ref="main">
           <div className="minDiv left-up" ref="leftup"></div>
           <div className="minDiv up" ref="up"></div>
